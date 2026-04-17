@@ -19,6 +19,9 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views as auth_views
 from eventos.views import ComprarTicketView, CustomLoginView, EventoViewSet, DjViewSet, GaleriaMediaViewSet, LogoutView, RegistroView, PerfilUsuarioView, ValidarTicketView, MercadoPagoWebhookView
+from eventos.views import home
+
+
 
 router = DefaultRouter()
 router.register(r'eventos', EventoViewSet, basename='evento')
@@ -27,6 +30,7 @@ router.register(r'galeria', GaleriaMediaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home),
     
     # Todo lo que es API va aquí:
     path('api/', include(router.urls)),

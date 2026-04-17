@@ -446,3 +446,20 @@ def crear_preferencia(request, evento_id):
 
     except Evento.DoesNotExist:
         return JsonResponse({"error": "Evento no encontrado"}, status=404)
+
+
+def home(request):
+    return JsonResponse({
+        "status": "ok",
+        "message": "Bienvenido a API salsa funcionando correctamente",
+        "endpoints": {
+            "eventos": "/api/eventos/",
+            "djs": "/api/djs/",
+            "galeria": "/api/galeria/",
+            "registro": "/api/registro/",
+            "login": "/login/",
+            "perfil": "/api/perfil/",
+            "logout": "/api/logout/",
+            "user-info": "/api/user-info/",
+        }
+    })
