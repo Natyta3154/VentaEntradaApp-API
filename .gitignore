@@ -1,0 +1,55 @@
+# Environments
+.env
+.venv
+venv/
+ENV/
+env/
+python_env/
+lib/
+bin/
+include/
+share/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Specialized directories
+staticfiles/
+media/
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Database
+db.sqlite3
+db.sqlite3-journal
+*.db
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Documentation/Temporary
+data.json
+text.txt
+*.log
+*.tmp
+*.bak
