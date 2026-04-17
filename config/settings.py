@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['ventaentradaapp-api.onrender.com']
 
 #Esto evita problemas con cookies y autenticación en Render
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -102,7 +102,14 @@ REST_FRAMEWORK = {
         'eventos.authentication.CookieTokenAuthentication',
         'rest_framework.authentication.TokenAuthentication',
         # 'rest_framework.authentication.SessionAuthentication', # Comentado para evitar errores de CSRF en la API
+        
     ],
+
+    #no más interfaz web en urrl que muetrra el home de la api
+    #solo JSON (más limpio con esto)
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ]
 }
 
 
@@ -111,7 +118,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     "http://localhost:4173",
     "http://127.0.0.1:4173",
-    "http://127.0.0.1:8000"
+    "http://127.0.0.1:8000",
+    "https://ventaentradaapp-api.onrender.com"
 ]
 
 
@@ -122,7 +130,7 @@ CORS_ALLOW_CREDENTIALS = True
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = False # CSRF suele necesitarse en JS para formularios
 SESSION_COOKIE_SAMESITE = 'Lax'
-CSRF_TRUSTED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:4173", "http://127.0.0.1:4173"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:4173", "http://127.0.0.1:4173","https://ventaentradaapp-api.onrender.com"]
 
 
 
