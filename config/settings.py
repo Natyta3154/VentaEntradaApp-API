@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['ventaentradaapp-api.onrender.com']
+ALLOWED_HOSTS = ['ventaentradaapp-api.onrender.com', 'localhost', '127.0.0.1']
 
 #Esto evita problemas con cookies y autenticación en Render
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
