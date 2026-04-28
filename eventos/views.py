@@ -57,13 +57,13 @@ class CustomLoginView(APIView):
             "mensaje": "¡Bienvenido a la rumba!"
         }, status=status.HTTP_200_OK)
 
-        # Seteamos la cookie segura con el token
+        # Seteamos la cookie segura con el token (Forzamos seguridad para producción)
         response.set_cookie(
             key='auth_token', 
             value=token.key, 
-            httponly=True,   # Impide que JavaScript acceda al token
-            samesite='None' if not settings.DEBUG else 'Lax',
-            secure=not settings.DEBUG,
+            httponly=True,
+            samesite='None',
+            secure=True,
             max_age=60*60*24*7 # 7 días de duración
         )
         
