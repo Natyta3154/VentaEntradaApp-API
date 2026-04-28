@@ -73,8 +73,9 @@ STORAGES = {
     },
 }
 
-# Compatibilidad para Cloudinary
+# Compatibilidad para Cloudinary y WhiteNoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_MANIFEST_STRICT = False
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # DEBE IR PRIMERO
