@@ -54,6 +54,7 @@ class CustomLoginView(APIView):
         
         response = Response({
             "usuario": user_serializer.data,
+            "token": token.key,
             "mensaje": "¡Bienvenido a la rumba!"
         }, status=status.HTTP_200_OK)
 
