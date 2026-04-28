@@ -123,18 +123,29 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4173",
     "http://127.0.0.1:4173",
     "http://127.0.0.1:8000",
-    "https://ventaentradaapp-api.onrender.com"
+    "https://ventaentradaapp-api.onrender.com",
+    "https://venta-entrada-app-front.vercel.app"
 ]
 
 
 # PERMITE QUE LAS COOKIES VIAJEN
 CORS_ALLOW_CREDENTIALS = True
 
-# 3. Configuración de las Cookies de sesión
+# 3. Configuración de las Cookies para dominios cruzados
 SESSION_COOKIE_HTTPONLY = True
-CSRF_COOKIE_HTTPONLY = False # CSRF suele necesitarse en JS para formularios
-SESSION_COOKIE_SAMESITE = 'Lax'
-CSRF_TRUSTED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:4173", "http://127.0.0.1:4173","https://ventaentradaapp-api.onrender.com"]
+CSRF_COOKIE_HTTPONLY = False 
+SESSION_COOKIE_SAMESITE = 'None' # Permite cookies entre dominios distintos
+SESSION_COOKIE_SECURE = True   # Obligatorio si SAMESITE es 'None'
+CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173", 
+    "http://localhost:4173", 
+    "http://127.0.0.1:4173",
+    "https://ventaentradaapp-api.onrender.com",
+    "https://venta-entrada-app-front.vercel.app"
+]
 
 
 
