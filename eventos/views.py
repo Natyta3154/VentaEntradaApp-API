@@ -61,9 +61,9 @@ class CustomLoginView(APIView):
         response.set_cookie(
             key='auth_token', 
             value=token.key, 
-            httponly=True,   # Impide que JavaScript acceda al token (Seguridad)
-            samesite='Lax',  
-            secure=False,    # True solo si tienes HTTPS
+            httponly=True,   # Impide que JavaScript acceda al token
+            samesite='None' if not settings.DEBUG else 'Lax',
+            secure=not settings.DEBUG,
             max_age=60*60*24*7 # 7 días de duración
         )
         
